@@ -4,7 +4,8 @@ import { ProfileComponent } from './profile.component';
 import { JournalsComponent } from './journals/journals.component';
 import { Routes, RouterModule } from '@angular/router';
 import { EditJournalComponent } from './edit-journal/edit-journal.component';
-import { CreateJournalComponent } from './create-journal/create-journal.component'; 
+import { CreateJournalComponent } from './create-journal/create-journal.component';
+import {ReactiveFormsModule} from '@angular/forms';//new
 
 const appRoutes: Routes = [ // *new 
 	{ // *new 
@@ -28,7 +29,8 @@ const appRoutes: Routes = [ // *new
   declarations: [ProfileComponent, JournalsComponent, EditJournalComponent, CreateJournalComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(appRoutes) // *new
+    RouterModule.forChild(appRoutes), // *new
+    ReactiveFormsModule, // *new
   ]
 })
 export class ProfileModule { }

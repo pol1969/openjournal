@@ -1,17 +1,21 @@
 <!-- create.journal.component.html -->
 <div class="uk-container">
-	<form>
+	<!-- *new -->
+	<form [formGroup]="createJournalForm">
 		<fieldset class="uk-fieldset">
 			<legend class="uk-legend">Create a journal</legend>
 			<div class="uk-margin">
-				<input class="uk-input" type="text" placeholder="Journal Name">
+				<!-- *new -->
+				<input class="uk-input" formControlName="name" type="text" placeholder="Journal Name">
 			</div>
 			<div class="uk-margin">
-				<textarea class="uk-textarea" rows="5" placeholder="Journal Description" style="overflow-y: scroll;">
+				<!-- *new -->
+				<textarea class="uk-textarea" formControlName="description" rows="5" placeholder="Journal Description" style="overflow-y: scroll;">
 				</textarea>
 			</div>
 			<div class="uk-margin">
-				<textarea class="uk-textarea" rows="50" placeholder="Journal Content">
+				<!-- *new -->
+				<textarea class="uk-textarea" formControlName="content" rows="50" placeholder="Journal Content">
 				</textarea>
 			</div>
 			<div class="uk-margin">
