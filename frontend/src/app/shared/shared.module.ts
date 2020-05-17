@@ -5,13 +5,16 @@ import { LeftNavigationComponent } from './left-navigation/left-navigation.compo
 import { FooterComponent } from './footer/footer.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { RouterModule } from '@angular/router';//new
 
 
 
 @NgModule({
   declarations: [TopNavigationComponent, LeftNavigationComponent, FooterComponent, SignUpComponent, SignInComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule //new
+
   ],
   exports: [
 	  TopNavigationComponent,

@@ -19,11 +19,21 @@ export class CreateJournalComponent implements OnInit {
 	}
 
   ngOnInit(): void {//new
+	  console.log('ngOnInit in CreateJournalComponent')
 	  this.createJournalForm = this.formBuilder.group({
 	  id: this.journalModel.id, 
 	  name: this.journalModel.name, 
 	  description: this.journalModel.description, 
 	  content: this.journalModel.content, });
 }
+
+// *new 
+   createJournalFormSubmit() { 
+	   console.log('test');
+	   const formData = this.createJournalForm.getRawValue(); 
+	   console.log(formData.name);
+   } 
+
+
 
 }
