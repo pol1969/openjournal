@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Journal } from '../models/journal.model';//new
 import {FormBuilder, FormGroup} from '@angular/forms';//new
+import { ProfileService } from '../profile.service';//new
 
 @Component({
   selector: 'app-create-journal',
@@ -13,6 +14,8 @@ export class CreateJournalComponent implements OnInit {
 
   constructor(
 	  private formBuilder: FormBuilder,//new
+	      // *new
+          private profileService: ProfileService,
   ) 
 	{
 		this.journalModel = new Journal;//new
@@ -27,13 +30,19 @@ export class CreateJournalComponent implements OnInit {
 	  content: this.journalModel.content, });
 }
 
-// *new 
-   createJournalFormSubmit() { 
-	   console.log('test');
-	   const formData = this.createJournalForm.getRawValue(); 
-	   console.log(formData.name);
-   } 
+ createJournalFormSubmit() {
+    const formData = this.createJournalForm.getRawValue();
+    
+    this.profileService.createJournal(formData).subscribe(
+      (res) => {
+        console.log(res);
+ //       window.alert('Journal Created');
+ //       window.location.replace("/profile");
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
 
-
-
+  }
 }
