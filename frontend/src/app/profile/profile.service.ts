@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProfileService {
-	DJANGO_SERVER = 'урл:порт от джанги'
+	DJANGO_SERVER = 'http://127.0.0.1:8000'
 
 
 
