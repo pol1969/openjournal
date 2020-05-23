@@ -25,4 +25,9 @@ export class ProfileService {
 			this.DJANGO_SERVER + '/get-journals'
 		);
 	}
+
+	getSingleJournal(journalId: number) {
+   return this.http.post(this.DJANGO_SERVER + '/get-journal', journalId
+    );
+  }
 }
