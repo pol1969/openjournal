@@ -45,12 +45,12 @@ export class EditJournalComponent implements OnInit {
         this.journal = res;
 
         // *new
-//        this.editJournalForm.patchValue({
-//          id: this.journal.id,
-//          name: this.journal.name,
-//          description: this.journal.description,
-//          content: this.journal.content,
-//        });
+        this.editJournalForm.patchValue({
+          id: this.journal.id,
+          name: this.journal.name,
+          description: this.journal.description,
+          content: this.journal.content,
+        });
       },
       (err) => {
         console.log(err);
@@ -58,6 +58,22 @@ export class EditJournalComponent implements OnInit {
     )
 
 
+  }
+
+	// *new
+  editJournalFormSubmit() {
+    const formData = this.editJournalForm.getRawValue();
+
+    this.profileService.editJournal(formData).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+	  //
+//	  console.log("Submit editJournalForm")
   }
 
 }

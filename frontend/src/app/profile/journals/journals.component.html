@@ -22,8 +22,7 @@
 			<p>{{ journal.description }}</p>
 			<button [routerLink]="['edit-journal/', journal.id]" class="uk-button uk-button-small uk-margin-right"><span
 							uk-icon="search" class="uk-text-primary"></span>View</button>
-			<button class="uk-button uk-button-small" ><span uk-icon="trash"
-											  class="uk-text-danger"></span>Delete</button>
+			<button class="uk-button uk-button-danger uk-button-small" (click)="deleteJournal(journal.id)">Delete</button>
 		</div>
 
 	</div>

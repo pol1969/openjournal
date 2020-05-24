@@ -27,6 +27,18 @@ export class JournalsComponent implements OnInit {
 			}
 		);
 	}
+	deleteJournal(journalId){
+		this.profileService.deleteJournal(journalId).subscribe(
+			(res) => {
+				console.log(res);
+			},
+			(err) => {
+				console.log(err);
+			}
+		);
+
+
+	}
 
 
 

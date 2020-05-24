@@ -27,5 +27,31 @@ class getSingleJournal(APIView):
         journal_serialaizer = JournalSerializer(journal, many=False)
         return Response(journal_serialaizer.data, status=status.HTTP_200_OK)
  
-
+class editJournal(APIView):
+    def post(self, request):
+        journal_id = request.data['id']
+        journal_instance = Journal.objects.get(id=journal_id)
+        journal_serializer = JournalSerializer(journal_instance, data=request.data)
+        if journal_serializer.is_valid():
+            journal_serializer.save()
+            return Response(journal_serializer.data, status=status.HTTP_200_OK)
+ 
+#class deleteJournal(APIView):
+#    def post(self, request):
+##        import pdb; pdb.set_trace()
+#        journal_id = request.data['id']
+#        journal_instance = Journal.objects.get(id=journal_id)
+#        journal_serializer = JournalSerializer(journal_instance, many=False)
+#        journal_instance.delete()
+#        return Response(journal_serializer.data, status=status.HTTP_200_OK)
+#
+    # *new
+class deleteJournal(APIView):
+    def post(self, request):
+        journal_id = request.data
+        journal = Journal.objects.get(id=journal_id)
+        journal_serializer = JournalSerializer(journal, many=False)
+        journal.delete()
+        return Response(journal_serializer.data, status=status.HTTP_200_OK)
+ 
 

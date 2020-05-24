@@ -30,4 +30,15 @@ export class ProfileService {
    return this.http.post(this.DJANGO_SERVER + '/get-journal', journalId
     );
   }
+	editJournal(formData) {
+    return this.http.post(this.DJANGO_SERVER + '/edit-journal', formData
+    );
+  }
+	deleteJournal(journalId) {
+    return this.http.post(this.DJANGO_SERVER + '/delete-journal', journalId
+    );
+  }
+
+
 }
+
