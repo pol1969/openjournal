@@ -27,17 +27,18 @@ export class JournalsComponent implements OnInit {
 			}
 		);
 	}
-	deleteJournal(journalId){
+
+	deleteJournal(journalId, index) {
 		this.profileService.deleteJournal(journalId).subscribe(
 			(res) => {
 				console.log(res);
+				this.journals.splice(index, 1);
+				window.alert('Journal Deleted')
 			},
 			(err) => {
 				console.log(err);
 			}
-		);
-
-
+		)
 	}
 
 

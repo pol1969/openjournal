@@ -36,8 +36,8 @@ export class CreateJournalComponent implements OnInit {
     this.profileService.createJournal(formData).subscribe(
       (res) => {
         console.log(res);
-//        window.alert('Journal Created');
- //       window.location.replace("/profile");
+        window.alert('Journal Created');
+        window.location.replace("/profile");
       },
       (err) => {
         console.log(err);
